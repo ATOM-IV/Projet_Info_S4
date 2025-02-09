@@ -1,0 +1,102 @@
+.header {
+    background-color:#448F30 ;
+    width : 100vw ;
+    display : flex ;
+    justify-content : space-between;
+    align-items : center;
+    padding : 10px 10px ; 
+}
+
+body {
+    display : flex ;
+    flex-direction : column ;
+    align-items  : center;
+    justify-content: space-between;
+}
+
+.Logo{
+    width : 8vw ;
+    display : flex ;
+    justify-content : space-between;
+    align-items : center;
+    padding : 10px 10px ; 
+    font-size : 20px;
+    font-weight : bold ;
+    font-family : Arial ;
+}
+
+.lien{
+    color : white ;
+    font-family : Arial ;
+    text-decoration: none;
+    margin-left : 20px ;
+}
+
+.INPUT{
+    width:350px;  
+    background-color:#43877B ;
+    display : flex ;
+    align-items : center ;
+    justify-content : center ;
+    flex-direction : column ;
+    padding : 20px 20px;
+}
+
+.i1 {
+    margin-bottom : 20px ;
+    width : 100%;
+}
+  
+.i1into {
+    background-color:#6CA299 ;
+}
+
+.label{
+    font-family : Arial ;
+    font-weight : bold ;
+}
+  
+input {
+    height : 40px;
+    width : 100%;
+    padding : 10px;
+}
+  
+p {
+    margin-top : 5px;
+    margin-bottom : 5px;
+}
+  
+.B1{
+    background-color : #3B82F6 ;
+    color : white ;
+    border : none ;
+    padding : 9px 16px;
+    cursor: pointer;
+    font-family : Arial ;
+    border-radius : 15% ;
+    font-size : 16px;
+}
+  
+.B2{
+    background-color : white ;
+    color : blue ;
+    border : none ;
+    padding : 9px 16px ;
+    cursor: pointer;
+    font-family : Arial ;
+    border-radius : 15% ;
+    font-size : 16px;
+}
+  
+#footer {
+    color : white ;
+    font-size : 12px;
+}
+  
+
+* { 
+    box-sizing: border-box ;
+    padding : 0;
+    margin : 0px ;
+}
