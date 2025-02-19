@@ -1,23 +1,49 @@
 .header {
     background-color:#448F30 ;
-    width : 100vw ;
+    width : 100% ;
     display : flex ;
     justify-content : space-between;
     align-items : center;
     padding : 10px 10px ; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-body {
-    display : flex ;
-    flex-direction : column ;
-    align-items  : center;
-    justify-content: space-between;
+.nav-bar {
+    background-color: #356A27; 
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px 0;
+    position: fixed; 
+    top: 88px; 
+    left: 0;
+    z-index: 999;
+}
+
+.nav-button {
+    background-color: #5FAF50; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #4C9040; 
 }
 
 .Logo{
-    width : 8vw ;
+    width : 15vw ;
     display : flex ;
-    justify-content : space-between;
     align-items : center;
     padding : 10px 10px ; 
     font-size : 20px;
@@ -25,26 +51,42 @@ body {
     font-family : Arial ;
 }
 
+#JT{
+    color: white;
+    margin-left: 10px;
+}
+/*##############################################################*/
+
+body {
+    display : flex ;
+    flex-direction : column ;
+    align-items  : center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
 .lien{
     color : white ;
     font-family : Arial ;
     text-decoration: none;
-    margin-left : 20px ;
+    margin-right : 20px ;
 }
 
 .INPUT{
-    width:350px;  
+    height : 50vh;
+    width: 50vw;  
     background-color:#43877B ;
     display : flex ;
     align-items : center ;
     justify-content : center ;
     flex-direction : column ;
-    padding : 20px 20px;
+    padding : 20px 20px ;
+    margin-top: 80px;
 }
 
 .i1 {
     margin-bottom : 20px ;
-    width : 100%;
+    width : 80%;
 }
   
 .i1into {
@@ -52,8 +94,10 @@ body {
 }
 
 .label{
+    color: white;
     font-family : Arial ;
     font-weight : bold ;
+    font-size: 175%;
 }
   
 input {
@@ -61,7 +105,7 @@ input {
     width : 100%;
     padding : 10px;
 }
-  
+
 p {
     margin-top : 5px;
     margin-bottom : 5px;
@@ -71,29 +115,49 @@ p {
     background-color : #3B82F6 ;
     color : white ;
     border : none ;
-    padding : 9px 16px;
+    padding : 16px 23px;
     cursor: pointer;
     font-family : Arial ;
     border-radius : 15% ;
-    font-size : 16px;
+    font-size : 21px;
+    margin-right: 50px;
+    margin-bottom: 20px;
 }
   
 .B2{
     background-color : white ;
-    color : blue ;
+    color : #3B82F6 ;
     border : none ;
-    padding : 9px 16px ;
+    padding : 16px 23px ;
     cursor: pointer;
     font-family : Arial ;
     border-radius : 15% ;
-    font-size : 16px;
+    font-size : 21px;
 }
   
+.B2:hover ,.B1:hover{
+    opacity: 0.8; 
+}
+
+#Boutons {
+    margin-top: 25px;
+}
+
+/*##############################################################*/
+
 #footer {
     color : white ;
     font-size : 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    
 }
   
+/*##############################################################*/
 
 * { 
     box-sizing: border-box ;
