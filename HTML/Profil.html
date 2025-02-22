@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
-    <body style="background-color:#3A5000" text="white" link="yellow">
+    <body id="Body_Admin">
 
         <div class="header">
             <div class="Logo">
@@ -14,8 +14,8 @@
               <p id="JT"> Jungle Trek</p>
             </div>
             <div >
-              <a href="/" class ="lien">Login</a>
-              <a href="/" class ="lien">Signup</a>
+              <a href="/" class ="lien">Se connecter</a>
+              <a href="/" class ="lien">S'inscrire</a>
             </div>
             <div class="nav-bar">
               <button class="nav-button">Accueil</button>
@@ -24,7 +24,41 @@
               <button class="nav-button">À propos</button>
             </div>
         </div>
-      
+
+        <div class="profil-container">
+            <h1 class="profil-title">Profil utilisateur</h1>
+            <form action="" method="get">
+                <div class="profil-info">
+                    <p>
+                    <label for="nom"><b>Identifiant :</b></label>
+                    <input type="text" id="nom" value="Jean Grand" disabled>
+                    </p>
+
+                    <p>
+                    <label for="Mail"><b>Adresse e-mail :</b></label>
+                    <input type="email" id="Mail" value="jean.grand@gmail.com" disabled>
+                    </p>
+
+                    <p>
+                    <label for="password"><b>Mot de passe :</b></label>
+                    <input type="password" id="password" value="Secret____" disabled>
+                    </p>
+
+                    <p>
+                    <label for="parcours"><b>Parcours :</b></label>
+                    <input type="select" id="parcours" value="a-c-b" disabled>
+                    </p>
+
+                    <p>
+                    <label><b>Statut :</b> Client standard</label>
+                    </p>
+                </div>
+                
+                <button class="bouton-mod" id="bouton-mod">Modifier</button>
+                <button class="bouton-enreg" id="bouton-enreg">Enregistrer les modifications</button>
+            </form>
+        </div>
+
     </body>
     <footer id="footer">©2025 Jungle Trek Corp, All rights reserved</footer>
 </html>
