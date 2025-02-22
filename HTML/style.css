@@ -122,6 +122,7 @@ body::before {
     flex-direction : column ;
     padding : 20px 20px ;
     margin-top: 80px;
+    border-radius : 15% ;
 }
 
 .i1 {
