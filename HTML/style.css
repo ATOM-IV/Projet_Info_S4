@@ -132,6 +132,9 @@ body::before {
   
 .i1into {
     background-color:#6CA299 ;
+    height : 40px;
+    width : 100%;
+    padding : 10px;
 }
 
 .label{
@@ -139,17 +142,6 @@ body::before {
     font-family : Arial ;
     font-weight : bold ;
     font-size: 175%;
-}
-  
-input {
-    height : 40px;
-    width : 100%;
-    padding : 10px;
-}
-
-p {
-    margin-top : 5px;
-    margin-bottom : 5px;
 }
   
 .B1{
