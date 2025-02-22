@@ -55,14 +55,54 @@
     color: white;
     margin-left: 10px;
 }
+
+#Presentation {
+    font-family: Arial;
+    font-size: 25px;
+    margin-top: 200px;
+    margin-left: 60px;
+    text-align: left;
+    max-width: 75%;
+}
+
+
+
 /*##############################################################*/
 
-body {
+#Body_Accueil{
+    background: url("Image_Accueil.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display : flex ;
+    flex-direction : column ;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+#Body_Login {
+    background: url("Image_Accueil.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
     display : flex ;
     flex-direction : column ;
     align-items  : center;
     justify-content: center;
     min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 .lien{
@@ -75,7 +115,7 @@ body {
 .INPUT{
     height : 50vh;
     width: 50vw;  
-    background-color:#43877B ;
+    background-color:#3A5000 ;
     display : flex ;
     align-items : center ;
     justify-content : center ;
@@ -144,6 +184,7 @@ p {
 }
 
 /*##############################################################*/
+/*https://images8.alphacoders.com/866/866198.jpg*/
 
 #footer {
     color : white ;
@@ -164,7 +205,6 @@ p {
     padding : 0;
     margin : 0px ;
 }
-
 /*##############################################################*/
 
 .admin-boite {
