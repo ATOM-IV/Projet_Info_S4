@@ -1,54 +1,129 @@
 <!DOCTYPE html>
+<html lang="fr">
 <head> 
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sélection de Voyage</title>
-
     <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    </head>
 
-<body style="background-color:#3A5000">
-  
-    <div class="header">
-        <div class="Logo">
-          <img src="Logo.png" width="50px" height="50px"></img>
-          <p id="JT"> Jungle Trek</p>
+<body id="bodyrechercher">
+
+    <div class="headerrechercher">
+        <div class="Logorechercher">
+            <img src="Logo.png" width="50px" height="50px"></img>
+            <p id="JT"> Jungle Trek</p>
         </div>
-        <div >
-          <a href="/" class ="lien">Login</a>
-          <a href="/" class ="lien">Signup</a>
-        </div>
-        <div class="nav-bar">
-          <button class="nav-button">Accueil</button>
-          <button class="nav-button">Explorer</button>
-          <button class="nav-button">Contact</button>
-          <button class="nav-button">À propos</button>
+        <div>
+            <a href="/" class="lienrechercher">Login</a>
+            <a href="/" class="lienrechercher">Signup</a>
         </div>
     </div>
-    
-    <div class ="INPUT">
 
-        <label>Date :</label>
-    <input type="date" id="date">
-    <br><br>
-    <label>Destination :</label>
-    <select id="destination">
-        <option value="paris">Paris</option>
-        <option value="londres">Londres</option>
-        <option value="new-york">New York</option>
-        <option value="tokyo">Tokyo</option>
-    </select>
-    <br><br>
-    <label>Option :</label>
-    <select id="option">
-        <option value="standard">Standard</option>
-        <option value="premium">Premium</option>
-        <option value="vip">VIP</option>
-    </select>
+    <div class="nav-barrechercher">
+        <button class="nav-buttonrechercher">Accueil</button>
+        <button class="nav-buttonrechercher">Explorer</button>
+        <button class="nav-buttonrechercher">Contact</button>
+        <button class="nav-buttonrechercher">À propos</button>
+    </div>
 
+    <div class="selection-containerrechercher">
+        <label for="date" id="labelrechercher">Date :</label>
+        <input type="date" id="date">
+
+        <label for="parcours" id="labelrechercher">Parcours :</label>
+        <select id="parcours">
+            <option value="a-b-c">a-b-c</option>
+            <option value="d-c-a">d-c-a</option>
+            <option value="b-d-c">b-d-c</option>
+            <option value="a-d-b">a-d-b</option>
+        </select>
     </div>
-    <div id="footer">
-        <p>©2025 Jungle Trek Corp, All right reserved</p>
-    </div>
-  </body>
+
+    <div class="steps-containerrechercher">
+        
+        
+        <div class="steprechercher">
+            <h3 id="h3rechercher">Étape 1</h3>
+            
+            <label id="labelrechercher">Option 1 :</label>
+            <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <label id="labelrechercher">Option 2 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+
+            <label id="labelrechercher">Option 3 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+        </div>
+
+   
+        <div class="steprechercher">
+            <h3 id="h3rechercher">Étape 2</h3>
+
+            <label id="labelrechercher">Option 1 :</label>
+            <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <label id="labelrechercher">Option 2 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+
+            <label id="labelrechercher">Option 3 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="steprechercher">
+            <h3 id="h3rechercher">Étape 3</h3>
+
+            <label id="labelrechercher">Option 1 :</label>
+            <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <label id="labelrechercher">Option 2 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+
+            <label id="labelrechercher">Option 3 :</label>
+            <div class="optionsrechercher">
+                <label><input type="checkbox" value="1"> 1</label><br>
+                <label><input type="checkbox" value="2"> 2</label><br>
+                <label><input type="checkbox" value="3"> 3</label>
+            </div>
+        </div>
+</body>
+<footer id="footerrechercher"> 
+    <p>©2025 Jungle Trek Corp, All right reserved</p>
+</footer>
+
+<button id="pay-buttonrechercher">Payer</button>
+
+</html>
