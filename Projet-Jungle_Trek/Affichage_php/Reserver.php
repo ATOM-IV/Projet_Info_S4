@@ -20,7 +20,7 @@ elseif ($_SESSION["utilisateur"]["statut"]=="administrateur") {
 </head>
 
 <body id="bodyrechercher">
-<form action="../Code_php/reservation.php" method="POST">
+<form action="recap.php" method="POST">
     <div class="header">
         <div class="Logo">
             <img src="Images/Logo.png" width="50px" height="50px"></img>
@@ -54,7 +54,7 @@ elseif ($_SESSION["utilisateur"]["statut"]=="administrateur") {
         <div class="steprechercher">
             <h3 id="h3rechercher">Étape 1</h3>
             <label id="labelrechercher">Durée de l'étape :</label>
-            <select name="duree[]" required>
+            <select name="duree[0]" required>
                 <option value="1">1 heure</option>
                 <option value="2">2 heures</option>
                 <option value="3">3 heures</option>
@@ -78,7 +78,7 @@ elseif ($_SESSION["utilisateur"]["statut"]=="administrateur") {
         <div class="steprechercher">
             <h3 id="h3rechercher">Étape 2</h3>
             <label id="labelrechercher">Durée de l'étape :</label>
-            <select name="duree[]" required>
+            <select name="duree[1]" required>
                 <option value="1">1 heure</option>
                 <option value="2">2 heures</option>
                 <option value="3">3 heures</option>
@@ -102,7 +102,7 @@ elseif ($_SESSION["utilisateur"]["statut"]=="administrateur") {
         <div class="steprechercher">
             <h3 id="h3rechercher">Étape 3</h3>
             <label id="labelrechercher">Durée de l'étape :</label>
-            <select name="duree[]" required>
+            <select name="duree[2]" required>
                 <option value="1">1 heure</option>
                 <option value="2">2 heures</option>
                 <option value="3">3 heures</option>

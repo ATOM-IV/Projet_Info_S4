@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         fputcsv($fichier, $ligne);
         fclose($fichier);
         header("Location: ../Affichage_php/Accueil.php"); 
-
         exit(); 
 }
 ?>

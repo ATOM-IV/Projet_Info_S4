@@ -59,7 +59,7 @@ $transaction_data = [
 
 
 $fichier = fopen("transactions.csv", "a+");
-fputcsv($fichier, $transaction_data);
+fputs($fichier, implode(',', $transaction_data)."\n"); // Evite de mettre des guillemets qui causerait des problèmes d'affichages, lorsque les valeurs contiennent des espaces
 echo "Paiement bon, voyage réservé.";
 fclose($fichier);
 
