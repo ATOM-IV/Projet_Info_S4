@@ -12,5 +12,5 @@ Toutes les pages php et les pages de codes sont dans le dossier Projet-Jungle_Tr
 La phase 3 sera terminée!
 
 Les codes Javascript sont dans le dossier Code_JS.
-Le document texte contient QUELQUES identifiants et mots de passes de compte préfait.
+Le document texte "Comptes.txt" contient QUELQUES identifiants et mots de passes de compte préfait.
 Pour créer un compte administrateur, il faut le mot de passe administrateur : "mdpadmin"
