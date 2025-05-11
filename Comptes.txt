@@ -1,0 +1,18 @@
+Comptes clients:
+
+ID: "Bonhomme"
+MDP: "LongMDP"
+
+ID: "ATOMIV"
+MDP: "lemdpatom"
+
+ID: "ProfessioPro"
+MDP: "SuperPASSWORD"
+
+Comptes administrateurs:
+
+ID: "Le_Big_Admin"
+MDP: "CESTMWALADMIN"
+
+ID: "SuperModo"
+MDP: "lemdpduSUPERMODO"
