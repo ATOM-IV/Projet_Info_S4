@@ -4,6 +4,10 @@ if (!isset($_SESSION["utilisateur"])) {
     header("Location: Login.php");
     exit();
 }
+else if ($_SESSION["utilisateur"]["statut"] !="admin") {
+    header("Location: Login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +15,8 @@ if (!isset($_SESSION["utilisateur"])) {
 <head> 
     <meta charset="UTF-8">
     <title>Jungle Trek - Admin</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <?php include '../Code_php/theme-loader.php'; ?>
+
 </head>
 
 <body text="white" id="Body_Admin">
@@ -31,6 +36,7 @@ if (!isset($_SESSION["utilisateur"])) {
           <a href="Voyages_du_moment.php"><button class="nav-button">Voyages du moment</button></a>
           <a href="Recherche.php"><button class="nav-button">Rechercher</button></a>
           <a href="Admin.php"><button class="nav-button">Liste des utilisateurs</button></a>
+          <button class="nav-button" id="theme-toggle">🌓 Thème</button>
         </div>
     </div>
     

@@ -1,5 +1,63 @@
+
+/*############################-Thème sombre-##################################*/
+
+body, #Body_Accueil, #Body_Login, #Body_Profil, #Body_Admin, #bodyrechercher, #Body_Explorer {
+    background-color: #051400 ;
+    color: #ffffff ;
+}
+
+.header, .nav-bar {
+    background-color: #0E2607 ;
+}
+
+.INPUT, .profil-container, .admin-boite, .selection-containerrechercher, .destination-card {
+    background-color: #1A3813 ;
+    color: #ffffff ;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4) ;
+}
+
+.nav-button, .bouton-mod, .admin-btn {
+    background-color: #2A4822 ;
+    color: #ffffff ;
+}
+
+.nav-button:hover, .bouton-mod:hover, .admin-btn:hover {
+    background-color: #333F15 ;
+}
+
+.input, .i1into, select, textarea {
+    background-color: #2F4C48 ;
+    color: #ffffff ;
+    border: none ;
+}
+
+input::placeholder, .i1into::placeholder {
+    color: #cccccc ;
+    opacity: 1;
+}
+
+.label, .profil-title, .admin-titre, .explorer-title {
+    color: #ffffff ;
+}
+
+.B1, .B2, .search-button, .bouton-enreg, #pay-buttonrechercher {
+    background-color: #47663F ;
+    color: #ffffff ;
+}
+
+.B1:hover, .B2:hover, .search-button:hover, .bouton-enreg:hover, #pay-buttonrechercher:hover {
+    background-color: #333F15 ;
+}
+
+.destination-card p, .profil-info, .optionsrechercher, .admin-tableau, .admin-tableau th, .admin-tableau td {
+    color: #ffffff ;
+}
+
+
+/*##############################################################*/
+
+
 .header {
-    background-color:#448F30 ;
     width : 100% ;
     display : flex ;
     justify-content : space-between;
@@ -12,7 +70,6 @@
 }
 
 .nav-bar {
-    background-color: #356A27; 
     width: 100%;
     display: flex;
     justify-content: center; 
@@ -25,7 +82,6 @@
 }
 
 .nav-button {
-    background-color: #5FAF50; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -35,10 +91,6 @@
     font-size: 16px;
     border-radius: 5px;
     transition: 0.3s;
-}
-
-.nav-button:hover {
-    background-color: #4C9040; 
 }
 
 .Logo{
@@ -102,7 +154,6 @@
 }
 
 .INPUT{  
-    background-color:#3A5000 ;
     width: 50%;
     margin-top: 180px;
     margin-bottom: 60px;
@@ -136,36 +187,32 @@
     margin-left: 10px;    
     margin-bottom: 5px; 
     font-size: 1em;
-    background-color: #3A5000;
+    background-color: #1A3813;
     border: 1px solid white;
     border-radius: 5px;
     cursor: pointer;
-    transition: #3A5000 0.2s ease;
+    transition: #1A3813 0.2s ease;
 }
 
 .boutonvisu:hover {
     background-color: #d0d0d0;
 }
 
-#i1select {
-    color: black;        
+#i1select {     
     font-size: 18px;    
     font-family: Arial, sans-serif; 
     font-style: italic; 
 }
 
 .i1into {
-    background-color:#6CA299 ;
     height : 40px;
     width : 100%;
     padding : 10px;
-    color: black;        
     font-size: 18px;    
     font-family: Arial, sans-serif; 
 }
 
 .i1into::placeholder {
-    color: black;        
     font-size: 18px;    
     font-family: Arial, sans-serif; 
     font-style: italic; 
@@ -173,15 +220,12 @@
 }
 
 .label{
-    color: white;
     font-family : Arial ;
     font-weight : bold ;
     font-size: 175%;
 }
   
 .B1{
-    background-color : #3B82F6 ;
-    color : white ;
     border : none ;
     padding : 16px 23px;
     cursor: pointer;
@@ -193,8 +237,6 @@
 }
   
 .B2{
-    background-color : white ;
-    color : #3B82F6 ;
     border : none ;
     padding : 16px 23px ;
     cursor: pointer;
@@ -215,7 +257,6 @@
 /*https://images8.alphacoders.com/866/866198.jpg*/
 
 #footer {
-    color : white ;
     font-size : 12px;
     position: fixed;
     bottom: 0;
@@ -239,7 +280,6 @@
 /*##############################################################*/
 
 #footer_admin {
-    color : white ;
     font-size : 12px;
     width: 100%;
     text-align: center;
@@ -247,7 +287,6 @@
 }
 
 #Body_Admin {
-    background-color: #0f4800;
     display : flex ;
     flex-direction : column ;
     align-items  : center;
@@ -260,7 +299,6 @@
     width: 80%;
     margin-top: 180px;
     margin-bottom: 60px;
-    background-color: #6CA299;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -271,7 +309,6 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    color: white;
     margin-bottom: 20px;
 }
 
@@ -279,8 +316,6 @@
 .admin-tableau {
     width: 100%;
     border-collapse: collapse;
-    background-color: #356A27;
-    color: white;
 }
 
 .admin-tableau th, .admin-tableau td {
@@ -290,7 +325,6 @@
 }
 
 .admin-tableau th {
-    background-color: #5FAF50;
     font-weight: bold;
 }
 
@@ -326,7 +360,6 @@
 /*##############################################################*/
 
 #Body_Profil {
-    background-color: #0f4800;
     display : flex ;
     flex-direction : column ;
     align-items  : center;
@@ -351,12 +384,10 @@
 .profil-container {
     width: 50%;
     margin: 100px;
-    background-color: #43877B;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: white;
 }
 
 .profil-title {
@@ -372,8 +403,6 @@
 }
 
 .bouton-mod {
-    background-color: #5FAF50;
-    color: white;
     border: none;
     padding: 8px 15px;
     font-size: 16px;
@@ -381,10 +410,6 @@
     cursor: pointer;
     transition: 0.3s;
     margin: 5px;
-}
-
-.bouton-mod:hover {
-    background-color: #4C9040;
 }
 
 
@@ -410,8 +435,6 @@
 
 
 #bodyrechercher {
-    background-color: #3A5000;
-    color: white;
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 170px;
@@ -419,7 +442,6 @@
 
 
 .selection-containerrechercher {
-    background-color: #DFFFD6;
     border: 2px #448F30;
     border-radius: 10px;
     width: 60%;
@@ -428,21 +450,24 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+#date{
+    background-color: #2F4C48;
+    color : white;
+}
+
 #labelrechercher {
     font-size: 18px;
     font-family: Arial;
-    color: black;
+    color : white;
     display: block;
     margin: 10px 0 5px;
 }
 
 #bodyrechercher select, #bodyrechercher input[type="date"] {
     font-size: 18px;
-    color: #448F30;
     padding: 8px;
     border: 2px solid #448F30;
     border-radius: 5px;
-    background-color: white;
     width: 80%;
     margin-bottom: 10px;
 }
@@ -455,7 +480,7 @@
 }
 
 .steprechercher {
-    background-color: #DFFFD6;
+    background-color: #1A3813 ;
     border: 2px solid #448F30;
     border-radius: 10px;
     width: 25%;
@@ -465,7 +490,7 @@
 }
 
 #h3rechercher {
-    color: black;
+    color : white;
     text-align: center;
 }
 
@@ -494,8 +519,6 @@ input[type="checkbox"] {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #6CA299;
-    color: white;
     padding: 15px 25px;
     border: none;
     font-size: 18px;
@@ -504,15 +527,9 @@ input[type="checkbox"] {
     transition: 0.3s;
 }
 
-#pay-buttonrechercher:hover {
-    background-color: #43877B;
-}
-
 /*##############################################################*/
 
 #Body_Explorer {
-    background-color: #3A5000;
-    color: white;
     font-family: Arial, sans-serif;
     text-align: center;
     padding-top: 120px;
@@ -538,7 +555,6 @@ input[type="checkbox"] {
 }
 
 .destination-card {
-    background-color: #43877B;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -572,17 +588,11 @@ input[type="checkbox"] {
 .search-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-
-.search-button:hover {
-    background-color: #45a049;
-}
-
 .profil-input[disabled] {
   background-color: #eee;
   color: #666;

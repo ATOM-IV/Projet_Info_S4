@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+function fmt_euro($n) {
+    return number_format($n, 2, ',', ' ') . ' €';
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION["date"] = $_POST["date"];
@@ -15,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["equipements"][1] = $_POST["equipement"][1];
     $_SESSION["equipements"][2] = $_POST["equipement"][2];
 
-    $_SESSION["montant"] = 100;
+    $_SESSION["montant"] = $_POST["montant"]; 
     $_SESSION["transaction_id"] = substr(uniqid(), 0, 24);
     }
 
@@ -39,15 +43,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<br><br><h3>Étape " . ($i + 1) . "</h3>";
         echo "<p>Durée :" . $_SESSION["duree"][$i]. "heure(s)</p>"; // Affichage de la durée avec "h"               
         echo "<p>Accompagnements : " . $_SESSION["accompagnements"][$i] . "</p>";
-        echo "<p>Équipements : " . $_SESSION["equipements"][$i] . "</p><b";
-    } 
+        echo "<p>Équipements : " . $_SESSION["equipements"][$i] . "</p>";
+    }
+    echo "<br>Prix :" . fmt_euro($_SESSION['montant']);
+
 
     echo "<br><br></div>";
+    
+    
 
     if (!isset($_POST["consultation"])){
         echo "<div class='paiement'>
                 <p>Prêt à procéder au paiement ?</p><br>
-                <a href='paiement.php'><button>Payer maintenant</button></a>
+                <a href='paiement.php'><button>Payer maintenant (". fmt_euro($_SESSION['montant']) . ") </button></a>
             </div>";}
     else {
         echo "<div class='paiement'>
@@ -60,5 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <footer id='footerrechercher'> 
         <p>©2025 Jungle Trek Corp, All rights reserved</p>
         </footer>";
-
 ?>

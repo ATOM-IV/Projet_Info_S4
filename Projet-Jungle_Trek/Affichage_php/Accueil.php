@@ -6,8 +6,8 @@ session_start();
 <html lang="fr">
     <head> 
         <meta charset="UTF-8">
-        <title> Jungle Trek - Accueil </title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Jungle Trek - Accueil</title>
+        <?php include '../Code_php/theme-loader.php'; ?>
     </head>
 
     <body text="white" id="Body_Accueil">
@@ -45,6 +45,7 @@ session_start();
                 echo '<a href="Reserver.php"><button class="nav-button">Réserver</button></a>';
               }
             ?>
+            <button class="nav-button" id="theme-toggle">🌓 Thème</button>
           </div>
         </div>
 

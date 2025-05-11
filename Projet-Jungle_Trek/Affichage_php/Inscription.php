@@ -8,7 +8,7 @@ session_start();
 <head> 
     <meta charset="UTF-8">
     <title> Jungle Trek - Inscrption </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <?php include '../Code_php/theme-loader.php'; ?>
 </head>
 
 
@@ -45,26 +45,42 @@ session_start();
                         echo '<a href="Reserver.php"><button class="nav-button">Réserver</button></a>';
                     }
                 ?>
+            <button class="nav-button" id="theme-toggle">🌓 Thème</button>
         </div>
     </div>
     
     <div class ="INPUT">
         <form action="../Code_php/ajouter_utilisateur.php" method="POST" class="formulaire">
+
+            <div id="erreurs"></div>
+
             <div class="i1">
                 <p class="label">Identifiant</p>
                 <input type="text" name="login" placeholder="Identifiant de connexion" class="i1into" required>
             </div>
 
             <div class="i1">
-                <p class="label">Mot de Passe</p>
-                <input type="password" name="mot_de_passe" placeholder="Mot de passe" class="i1into" required>   
+                <div class="labeltoggle">
+                    <span class="label">Mot de Passe</span>
+                    <button type="button" id="toggle-password" class="boutonvisu">👁️</button>
+                </div>
+                <input type="password" name="mot_de_passe" placeholder="Mot de passe" class="i1into" required>
             </div>
 
             <div class="i1">
-                <select name="statut" id="i1select" class="i1into">
+                <p class="label">Statut</p>
+                <select name="statut" id="i1select" class="i1into" required>
                     <option value="client">Client</option>
                     <option value="administrateur">Administrateur</option>
                 </select>
+            </div>
+
+            <div id="admin-code-field" style="display:none;" class="i1">
+                <div class="labeltoggle">
+                    <span class="label">Mot de Passe Admin.</span>
+                    <button type="button" id="toggle-password-ADM" class="boutonvisu">👁️</button>
+                </div>
+                <input type="password" name="admin_password" placeholder="Mot de passe administrateur" id="admin-password" class="i1into" required>   
             </div>
 
             <div class="i1">
@@ -79,7 +95,7 @@ session_start();
 
             <div class="i1">
                 <p class="label">Email</p>
-                <input type="text" name="email" placeholder="jean.dupont@jungle-trek.com" class="i1into" required>   
+                <input type="email" name="email" placeholder="jean.dupont@jungle-trek.com" class="i1into" required>   
             </div>
 
             <div class="i1">
@@ -95,8 +111,11 @@ session_start();
             <div id="Boutons">
                 <button type="submit" class="B1">S'inscrire</button>
             </div>
+
+            <script src="../Code_JS/verif-inscription.js" defer></script>
+
             </form>
-    </div>
+        </div>
     </body>
     <footer id="footer">
         ©2025 Jungle Trek Corp, All rights reserved

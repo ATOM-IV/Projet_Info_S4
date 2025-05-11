@@ -11,9 +11,11 @@ if (!isset($_SESSION["utilisateur"])) {
     <head>
         <meta charset="UTF-8">
         <title> Jungle Trek - Profil </title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <?php include '../Code_php/theme-loader.php'; ?>
+
     </head>
 
+    <script src="../Code_JS/profil_modifier.js"></script>
     <body id="Body_Admin">
 
         <div class="header">
@@ -37,26 +39,76 @@ if (!isset($_SESSION["utilisateur"])) {
               else {
                 echo '<a href="Reserver.php"><button class="nav-button">Réserver</button></a>';
               }
-            }
-            else {
-              echo '<a href="Reserver.php"><button class="nav-button">Réserver</button></a>';
-            }
-            ?>
+              }
+              else {
+                echo '<a href="Reserver.php"><button class="nav-button">Réserver</button></a>';
+              }
+              ?>
+              <button class="nav-button" id="theme-toggle">🌓 Thème</button>
             </div>
         </div>
 
         <div class="profil-container">
             <h1 class="profil-title">Profil utilisateur :</h1>
             <div class="profil-info">
-                Identifiant : <?php echo $_SESSION["utilisateur"]["login"] ?><br>
-                Nom : <?php echo $_SESSION["utilisateur"]["nom"] ?><br>
-                Prénom : <?php echo $_SESSION["utilisateur"]["prenom"] ?><br>
+
+
+
+              <div class="profil-champ" data-champ="login" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>">
+                <label>Identifiant :</label>
+                <input type="text" name="login" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <div class="profil-champ" data-champ="nom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>">
+                <label>Nom :</label>
+                <input type="text" name="nom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <div class="profil-champ" data-champ="prenom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>">
+                <label>Prénom :</label>
+                <input type="text" name="prenom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <div class="profil-champ" data-champ="email" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>">
+                <label>E-mail :</label>
+                <input type="email" name="email" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <div class="profil-champ" data-champ="date_naissance" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>">
+                <label>Date de naissance :</label>
+                <input type="date" name="date_naissance" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <div class="profil-champ" data-champ="adresse" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>">
+                <label>Adresse :</label>
+                <input type="text" name="adresse" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>" disabled>
+                <button class="edit-btn">✏️</button>
+                <button class="save-btn" style="display:none;">✔️</button>
+                <button class="cancel-btn" style="display:none;">❌</button>
+              </div>
+
+              <button id="submit-btn" style="display:none;margin-left:auto;margin-right:auto;">Soumettre les modifications</button>
+              <br>
+
+
+
+                Date d'inscription : <?php echo $_SESSION["utilisateur"]["date_inscription"] ?><br>
                 Rôle : <?php echo strtoupper($_SESSION["utilisateur"]["statut"])?> <br><br>
-                
-                E-mail : <?php echo $_SESSION["utilisateur"]["email"] ?><br>
-                Date de naissance : <?php echo $_SESSION["utilisateur"]["date_naissance"] ?><br>
-                Adresse : <?php echo $_SESSION["utilisateur"]["adresse"] ?><br>
-                Date d'inscription : <?php echo $_SESSION["utilisateur"]["date_inscription"] ?><br><br>
 
                 <?php if ($_SESSION["utilisateur"]["statut"]=="client") {
                     echo "Voyage réservées :<br>";
@@ -81,12 +133,13 @@ if (!isset($_SESSION["utilisateur"])) {
                           echo    '<input type="hidden" name="duree[2]" value="'.$duree3.'">';
 
                           echo    '<input type="hidden" name="accompagnement[0]" value="'.$acc1.'">';
-                          echo    '<input type="hidden" name="accompagnement[1]" value="'.$acc2.'">';
+                          echo    '<input type="hidden" name="accompagnement[1]" value="'.$acc2.'">'; 
                           echo    '<input type="hidden" name="accompagnement[2]" value="'.$acc3.'">';
 
                           echo    '<input type="hidden" name="equipement[0]" value="'.$equip1.'">';
                           echo    '<input type="hidden" name="equipement[1]" value="'.$equip2.'">';
                           echo    '<input type="hidden" name="equipement[2]" value="'.$equip3.'">';
+                          echo    '<input type="hidden" name="montant" value="'. $prix. '">';
 
                           echo    '<button type="submit">Voir les détails</button>
                                 </form>';

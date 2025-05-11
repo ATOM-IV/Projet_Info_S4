@@ -12,7 +12,8 @@ if (isset($_SESSION["utilisateur"])) {
 <head> 
     <meta charset="UTF-8">
     <title> Jungle Trek - Login </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <?php include '../Code_php/theme-loader.php'; ?>
+
 </head>
 
 
@@ -38,6 +39,7 @@ if (isset($_SESSION["utilisateur"])) {
           <a href="Voyages_du_moment.php"><button class="nav-button">Voyages du moment</button></a>
           <a href="Recherche.php"><button class="nav-button">Rechercher</button></a>
           <a href="Reserver.php"><button class="nav-button">Réserver</button></a>
+          <button class="nav-button" id="theme-toggle">🌓 Thème</button>
         </div>
     </div>
     
@@ -49,14 +51,18 @@ if (isset($_SESSION["utilisateur"])) {
             </div>
 
             <div class="i1">
-                <p class="label">Mot de Passe</p>
+                <div class="labeltoggle">
+                    <span class="label">Mot de Passe</span>
+                    <button type="button" id="toggle-password-login" class="boutonvisu">👁️</button>
+                </div>
                 <input type="password" name="mot_de_passe" placeholder="Mot de passe" class="i1into">   
             </div>
             
             <div id="Boutons">
                 <button type="submit" class="B1">Connection</button>
-<!--            <button type="submit" class="B2">Mot de passe oublié ?</button>         Peut-être plus tard-->
             </div>
+
+            <script src="../Code_JS/toggle-mdp-login.js" defer></script>
         </form>
     </div>
     </body>
