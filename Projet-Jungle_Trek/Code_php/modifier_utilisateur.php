@@ -46,7 +46,8 @@
 
             }
 
-            fputcsv($fichier_temp, $colonnes);
+            fwrite($fichier_temp, implode(',', $colonnes) . "\n");
+
         }
 
         fclose($fichier_temp);

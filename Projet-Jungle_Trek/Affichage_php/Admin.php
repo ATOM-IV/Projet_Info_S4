@@ -4,7 +4,7 @@ if (!isset($_SESSION["utilisateur"])) {
     header("Location: Login.php");
     exit();
 }
-else if ($_SESSION["utilisateur"]["statut"] !="admin") {
+else if ($_SESSION["utilisateur"]["statut"] !="administrateur") {
     header("Location: Login.php");
     exit();
 }
@@ -19,6 +19,7 @@ else if ($_SESSION["utilisateur"]["statut"] !="admin") {
 
 </head>
 
+<script src="../Code_js/admin-actions.js"></script>
 <body text="white" id="Body_Admin">
 
     <div class="header">
@@ -68,8 +69,8 @@ else if ($_SESSION["utilisateur"]["statut"] !="admin") {
                             <td> <a href="mailto:'.$email.'">'.$email.'</a></td>
                             <td>'.strtoupper($statut).'</td>
                             <td>
-                                <button class="admin-btn annuler">Annuler les réservations (WIP) </button>
-                                <button class="admin-btn ban">Bannir (WIP)</button>
+                                <button class="admin-btn annuler">Annuler les réservations </button>
+                                <button class="admin-btn ban">Bannir </button>
                             </td>
                         </tr>';                                      
                 } 
