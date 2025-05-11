@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveBtn = champ.querySelector('.save-btn');
     const cancelBtn = champ.querySelector('.cancel-btn');
     const original = input.value;
+    const form = document.querySelector('form');
 
     editBtn.addEventListener('click', () => {
       input.disabled = false;
@@ -34,4 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
       cancelBtn.style.display = 'none';
     });
   });
+  
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      // Empêche le formulaire de partir tout de suite
+      event.preventDefault();
+
+      // Réactive les champs modifiés
+      document.querySelectorAll('.profil-champ.modifié .profil-input').forEach(input => {
+        input.disabled = false;
+      });
+
+      // Soumet le formulaire manuellement après réactivation
+      form.submit();
+    });
+  }
 });

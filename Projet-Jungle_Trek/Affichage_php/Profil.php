@@ -15,7 +15,7 @@ if (!isset($_SESSION["utilisateur"])) {
 
     </head>
 
-    <script src="../Code_JS/profil_modifier.js"></script>
+    <script src="../Code_JS/profil_modifier.js" defer></script>
     <body id="Body_Admin">
 
         <div class="header">
@@ -53,57 +53,58 @@ if (!isset($_SESSION["utilisateur"])) {
             <div class="profil-info">
 
 
+              <form method="POST" action="../Code_php/modifier_utilisateur.php">
+                <div class="profil-champ" data-champ="login" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>">
+                  <label>Identifiant :</label>
+                  <input type="text" name="login" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="login" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>">
-                <label>Identifiant :</label>
-                <input type="text" name="login" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["login"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
+                <div class="profil-champ" data-champ="nom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>">
+                  <label>Nom :</label>
+                  <input type="text" name="nom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="nom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>">
-                <label>Nom :</label>
-                <input type="text" name="nom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["nom"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
+                <div class="profil-champ" data-champ="prenom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>">
+                  <label>Prénom :</label>
+                  <input type="text" name="prenom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="prenom" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>">
-                <label>Prénom :</label>
-                <input type="text" name="prenom" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["prenom"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
+                <div class="profil-champ" data-champ="email" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>">
+                  <label>E-mail :</label>
+                  <input type="email" name="email" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="email" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>">
-                <label>E-mail :</label>
-                <input type="email" name="email" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["email"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
+                <div class="profil-champ" data-champ="date_naissance" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>">
+                  <label>Date de naissance :</label>
+                  <input type="date" name="date_naissance" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="date_naissance" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>">
-                <label>Date de naissance :</label>
-                <input type="date" name="date_naissance" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["date_naissance"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
+                <div class="profil-champ" data-champ="adresse" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>">
+                  <label>Adresse :</label>
+                  <input type="text" name="adresse" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>" disabled>
+                  <button type="button" class="edit-btn">✏️</button>
+                  <button type="button" class="save-btn" style="display:none;">✔️</button>
+                  <button type="button" class="cancel-btn" style="display:none;">❌</button>
+                </div>
 
-              <div class="profil-champ" data-champ="adresse" data-original="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>">
-                <label>Adresse :</label>
-                <input type="text" name="adresse" class="profil-input" value="<?php echo htmlspecialchars($_SESSION["utilisateur"]["adresse"]); ?>" disabled>
-                <button class="edit-btn">✏️</button>
-                <button class="save-btn" style="display:none;">✔️</button>
-                <button class="cancel-btn" style="display:none;">❌</button>
-              </div>
-
-              <button id="submit-btn" style="display:none;margin-left:auto;margin-right:auto;">Soumettre les modifications</button>
-              <br>
+                <button type="submit" id="submit-btn" style="display:none;margin-left:auto;margin-right:auto;">Soumettre les modifications</button>
+                <br>
+              </form>
 
 
 
@@ -143,7 +144,6 @@ if (!isset($_SESSION["utilisateur"])) {
 
                           echo    '<button type="submit">Voir les détails</button>
                                 </form>';
-                          //Bientot il faudra envoyer le montant (phase 3)
                         }
                     }
                 }
