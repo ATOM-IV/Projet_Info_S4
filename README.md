@@ -14,4 +14,4 @@ La phase 3 est terminée!
 Les codes Javascript sont dans le dossier Code_JS.
 Le document texte "Comptes.txt" contient QUELQUES identifiants et mots de passes de compte préfait.
 Pour créer un compte administrateur, il faut le mot de passe administrateur : "mdpadmin"
-Ouvrir le document pdf pour un compte rendu
+Ouvrir le document pdf pour le compte rendu final
