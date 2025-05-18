@@ -125,7 +125,7 @@ for ($i = 0; $i < 3; $i++) {
 </form>
 
 <script id="tarifs-data" type="application/json"><?= json_encode($tarifs) ?></script>
-<script src="reservation.js"></script>
+<script src="../Code_JS/reservation.js"></script>
 </body>
 <footer id="footerrechercher">
     <p>©2025 Jungle Trek Corp, All right reserved</p>
