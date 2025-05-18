@@ -8,7 +8,7 @@ if ($api_key === "zzzz") {
     die(" C'est pas le bon code vendeur.");
 }
 
-$url_retour = "http://localhost/Projet-Jungle_Trek/Affichage_php/confirmation.php?transaction_id=".$_SESSION["transaction_id"];
+$url_retour = "http://localhost/Projet_Info_S4-Phase3/Projet-Jungle_Trek/Affichage_php/confirmation.php?transaction_id=".$_SESSION["transaction_id"];
 $control = md5($api_key . "#" . $_SESSION["transaction_id"] . "#" . number_format($_SESSION["montant"], 2, ".", "") . "#" . "SUPMECA_C" . "#" . $url_retour . "#");
 
 ?>

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if (!isset($_SESSION["utilisateur"])) {
@@ -8,7 +7,6 @@ if (!isset($_SESSION["utilisateur"])) {
     header("Location: Explorer.php");
     exit();
 }
-
 
 $tarifs = [
     'Temple-Village-Zoo'     => 120,
@@ -30,8 +28,37 @@ $tarifs = [
     ],
 ];
 
+$message = '';
 
-if (isset($_POST['accompagnement'], $_POST['equipement'], $_POST['duree'], $_POST['parcours'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = [];
+    }
+
+    $m = $tarifs[$_POST['parcours']];
+    for ($i = 0; $i < 3; $i++) {
+        $m += $tarifs['duree'][$_POST['duree'][$i]];
+        $m += $tarifs['accompagnement'][$_POST['accompagnement'][$i]];
+        $m += $tarifs['equipement'][$_POST['equipement'][$i]];
+    }
+    $_SESSION['panier'][] = [
+        'date'           => $_POST['date'],
+        'parcours'       => $_POST['parcours'],
+        'duree'          => $_POST['duree'],
+        'accompagnement' => $_POST['accompagnement'],
+        'equipement'     => $_POST['equipement'],
+        'montant'        => $m,
+    ];
+    $message = "Voyage ajouté au panier !";
+}
+
+elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payer'])) {
+    header("Location: recap.php");
+    exit();
+}
+
+
+if (isset($_POST['parcours'], $_POST['duree'], $_POST['accompagnement'], $_POST['equipement'])) {
     $Choix = $_POST;
 } else {
     $Choix = [
@@ -49,8 +76,11 @@ for ($i = 0; $i < 3; $i++) {
     $montant += $tarifs['accompagnement'][$Choix['accompagnement'][$i]];
     $montant += $tarifs['equipement'][$Choix['equipement'][$i]];
 }
-?>
 
+function fmt_euro($n) {
+    return number_format($n, 2, ',', ' ') . ' €';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -60,8 +90,10 @@ for ($i = 0; $i < 3; $i++) {
     <?php include '../Code_php/theme-loader.php'; ?>
 </head>
 <body id="bodyrechercher">
-<form action="recap.php" method="POST">
+
+<form action="" method="POST">
     <div class="header">
+        <!-- ton header inchangé -->
         <div class="Logo">
             <img src="Images/Logo.png" width="50px" height="50px" alt="Logo">
             <p id="JT">Jungle Trek</p>
@@ -80,14 +112,18 @@ for ($i = 0; $i < 3; $i++) {
         </div>
     </div>
 
+    <?php if ($message): ?>
+        <p style="color: green; padding: 10px;"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
     <div class="selection-containerrechercher">
         <label for="date" id="labelrechercher">Date :</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" required value="<?= htmlspecialchars($_POST['date'] ?? '') ?>">
 
         <label for="parcours" id="labelrechercher">Parcours :</label>
         <select id="parcours" name="parcours" class="opt" data-cat="parcours" required>
             <?php foreach (["Temple-Village-Zoo","Cascade-Zoo-Temple","Village-Cascade-Zoo","Temple-Cascade-Village"] as $p): ?>
-                <option value="<?= $p ?>" <?php if ($Choix["parcours"] === $p) echo 'selected'; ?>><?= htmlspecialchars($p) ?></option>
+                <option value="<?= $p ?>" <?= ($Choix['parcours'] === $p) ? 'selected' : '' ?>><?= htmlspecialchars($p) ?></option>
             <?php endforeach; ?>
         </select>
     </div>
@@ -99,21 +135,29 @@ for ($i = 0; $i < 3; $i++) {
                 <label id="labelrechercher">Durée de l'étape :</label>
                 <select name="duree[<?= $i ?>]" class="opt" data-cat="duree" data-step="<?= $i ?>" required>
                     <?php foreach (['1','2','3'] as $d): ?>
-                        <option value="<?= $d ?>" <?php if ($Choix['duree'][$i] === $d) echo 'selected'; ?>><?= $d ?> heure(s)</option>
+                        <option value="<?= $d ?>" <?= ($Choix['duree'][$i] === $d) ? 'selected' : '' ?>><?= $d ?> heure(s)</option>
                     <?php endforeach; ?>
                 </select>
 
                 <label id="labelrechercher">Accompagnement :</label>
                 <div id="labelrechercher">
                     <?php foreach (array_keys($tarifs['accompagnement']) as $acc): ?>
-                        <label><input type="radio" name="accompagnement[<?= $i ?>]" class="opt" data-cat="accompagnement" data-step="<?= $i ?>" value="<?= htmlspecialchars($acc) ?>" <?php if ($Choix['accompagnement'][$i] === $acc) echo 'checked'; ?>> <?= $acc ?></label><br>
+                        <label>
+                            <input type="radio" name="accompagnement[<?= $i ?>]" class="opt" data-cat="accompagnement" data-step="<?= $i ?>"
+                                   value="<?= htmlspecialchars($acc) ?>" <?= ($Choix['accompagnement'][$i] === $acc) ? 'checked' : '' ?>>
+                            <?= $acc ?>
+                        </label><br>
                     <?php endforeach; ?>
                 </div>
 
                 <label id="labelrechercher">Équipement :</label>
                 <div id="labelrechercher">
                     <?php foreach (array_keys($tarifs['equipement']) as $eq): ?>
-                        <label><input type="radio" name="equipement[<?= $i ?>]" class="opt" data-cat="equipement" data-step="<?= $i ?>" value="<?= htmlspecialchars($eq) ?>" <?php if ($Choix['equipement'][$i] === $eq) echo 'checked'; ?>> <?= $eq ?></label><br>
+                        <label>
+                            <input type="radio" name="equipement[<?= $i ?>]" class="opt" data-cat="equipement" data-step="<?= $i ?>"
+                                   value="<?= htmlspecialchars($eq) ?>" <?= ($Choix['equipement'][$i] === $eq) ? 'checked' : '' ?>>
+                            <?= $eq ?>
+                        </label><br>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -121,7 +165,17 @@ for ($i = 0; $i < 3; $i++) {
     </div>
 
     <input type="hidden" id="montant" name="montant" value="<?= $montant ?>">
-    <button type="submit" id="pay-buttonrechercher">Payer (Total: <?= number_format($montant,2,',',' ') ?> €)</button>
+
+    <!-- Ajouter au panier, bottom-left via CSS inline -->
+    <button type="submit" name="add_to_cart" id="add-to-cart"
+            style="position: fixed; bottom: 20px; left: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Ajouter au panier
+    </button>
+
+    <!-- Payer -->
+    <button type="submit" name="payer" id="pay-buttonrechercher">
+        Payer (Total: <?= fmt_euro($montant) ?>)
+    </button>
 </form>
 
 <script id="tarifs-data" type="application/json"><?= json_encode($tarifs) ?></script>
@@ -131,5 +185,3 @@ for ($i = 0; $i < 3; $i++) {
     <p>©2025 Jungle Trek Corp, All right reserved</p>
 </footer>
 </html>
-
-

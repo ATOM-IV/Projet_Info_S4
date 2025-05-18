@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector("form");
     const login = document.querySelector('input[name="login"]');
+    const email = document.querySelector('input[name="email"]');
     const password = document.querySelector('input[name="mot_de_passe"]');
     const passwordADM = document.querySelector('input[name="admin_password"]');
     const role = document.querySelector('select[name="statut"]');
@@ -22,17 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const adminCode = document.querySelector('#admin-password'); 
-    const compteurMin = 8;
+    const champs = [login, email, password];
+    const compteurMax = 50;
 
     // Créer compteurs de caractères
-    const compteur = document.createElement("small");
-    compteur.style.display = "block";
-    password.parentElement.appendChild(compteur);
+    champs.forEach(champ => {
+        const compteur = document.createElement("small");
+        compteur.style.display = "block";
+        champ.parentElement.appendChild(compteur);
 
-    password.addEventListener("input", () => {
-        compteur.textContent = `${password.value.length}/${compteurMin}`;
+        champ.addEventListener("input", () => {
+            compteur.textContent = `${champ.value.length}/${compteurMax}`;
+        });
     });
-    
 
     // Toggle mot de passe
     const toggleBtn = document.getElementById("toggle-password");
@@ -58,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let erreurs = [];
 
         // Longueurs max
-        if (password.value.length < compteurMin) {
-            erreurs.push("Mot de passe trop court !");
+        if (login.value.length > compteurMax || password.value.length > compteurMax) {
+            erreurs.push("Trop de caractères dans login ou mot de passe");
         }
 
         // Code admin requis si rôle admin
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Vérification login existant
+        // Vérification login existant via AJAX
         const response = await fetch("../Code_php/verif_utilisateur.php?login=" + encodeURIComponent(login.value));
         const exists = (await response.text()).trim();
         if (exists === "1") {

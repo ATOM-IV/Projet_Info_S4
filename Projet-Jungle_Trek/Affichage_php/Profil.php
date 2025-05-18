@@ -111,10 +111,15 @@ if (!isset($_SESSION["utilisateur"])) {
                 Date d'inscription : <?php echo $_SESSION["utilisateur"]["date_inscription"] ?><br>
                 Rôle : <?php echo strtoupper($_SESSION["utilisateur"]["statut"])?> <br><br>
 
+                <form action="recap.php" method="POST">
+                  <button type="submit">Afficher le panier</button>
+                </form>
+                <br><br>
+
                 <?php if ($_SESSION["utilisateur"]["statut"]=="client") {
                     echo "Voyage réservées :<br>";
                     
-                    $fichier=file("transactions.csv", FILE_IGNORE_NEW_LINES);
+                    $fichier=file("transactions.csv", FILE_IGNORE_NEW_LINES); 
 
                     foreach($fichier as $ligne) {
                         list($utilisateur, $id, $prix, $vendeur, $statut, $date, $parcours, $duree1, $duree2, $duree3, $acc1, $acc2, $acc3, $equip1, $equip2, $equip3) = explode(",", $ligne);
@@ -124,7 +129,7 @@ if (!isset($_SESSION["utilisateur"])) {
                           echo "<br>"."Parcours : ".$parcours."<br>";
                           echo "Date : ".$date."<br>";
 
-                          echo '<form action="recap.php" method="POST">';
+                          echo '<form action="recap_reservations_finis.php" method="POST">';
                           echo    '<input type="hidden" name="consultation" value="1">';
                           echo    '<input type="hidden" name="date" value="'.$date.'">';
                           echo    '<input type="hidden" name="parcours" value="'.$parcours.'">';

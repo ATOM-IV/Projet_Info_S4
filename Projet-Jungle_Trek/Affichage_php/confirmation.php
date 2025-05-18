@@ -32,38 +32,46 @@ if ($statut !== "accepted") {
 }
 
 $utilisateur = $_SESSION["utilisateur"]["login"];
-$parcours = $_SESSION["parcours"] ;
-$date = $_SESSION["date"] ;
-$duree = $_SESSION["duree"] ;
-$accompagnements = $_SESSION["accompagnements"];
-$equipements = $_SESSION["equipements"];
+$panier = $_SESSION["panier"];
 
-$transaction_data = [
-    "utilisateur" => $utilisateur,
-    "transaction_id" => $transaction,
-    "montant" => number_format($montant, 2, ".", ""),
-    "vendeur" => $vendeur,
-    "statut" => $statut,
-    "date" => $date,
-    "parcours" => $parcours,
-    "duree1" => $duree[0],
-    "duree2" => $duree[1],
-    "duree3" => $duree[2],
-    "accompagnements1" => $accompagnements[0],
-    "accompagnements2" => $accompagnements[1],
-    "accompagnements3" => $accompagnements[2],
-    "equipements1" => $equipements[0],
-    "equipements2" => $equipements[1],
-    "equipements3" => $equipements[2]
+foreach($panier as $voyage) {
+
+    $parcours = $voyage["parcours"] ;
+    $date = $voyage["date"] ;
+    $duree = $voyage["duree"] ;
+    $accompagnements = $voyage["accompagnement"];
+    $equipements = $voyage["equipement"];
+
+    $transaction_data = [
+        "utilisateur" => $utilisateur,
+        "transaction_id" => $transaction,
+        "montant" => number_format($montant, 2, ".", ""),
+        "vendeur" => $vendeur,
+        "statut" => $statut,
+        "date" => $date,
+        "parcours" => $parcours,
+        "duree1" => $duree[0],
+        "duree2" => $duree[1],
+        "duree3" => $duree[2],
+        "accompagnements1" => $accompagnements[0],
+        "accompagnements2" => $accompagnements[1],
+        "accompagnements3" => $accompagnements[2],
+        "equipements1" => $equipements[0],
+        "equipements2" => $equipements[1],
+        "equipements3" => $equipements[2]
 ];
 
 
 $fichier = fopen("transactions.csv", "a+");
 fputs($fichier, implode(',', $transaction_data)."\n"); // Evite de mettre des guillemets qui causerait des problèmes d'affichages, lorsque les valeurs contiennent des espaces
-echo "Paiement bon, voyage réservé.";
+
 fclose($fichier);
+$montant = 0;
+}
 
 
+echo "<br>Paiement bon, voyage(s) réservé.";
+$_SESSION["panier"] = [];
 
 ?>
 <!DOCTYPE html>
