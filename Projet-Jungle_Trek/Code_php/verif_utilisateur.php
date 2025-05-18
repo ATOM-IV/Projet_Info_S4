@@ -11,12 +11,12 @@ $fichier = fopen("utilisateurs.csv", "r");
 
 while (($ligne = fgetcsv($fichier, 1000, ",")) !== FALSE) {
     if ($ligne[0] === $login) {
-        echo "1"; // trouvé
+        echo "1"; 
         fclose($fichier);
         exit;
     }
 }
 
 fclose($fichier);
-echo "0"; // pas trouvé
+echo "0"; 
 ?>
