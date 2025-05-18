@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Vérification login existant via AJAX
+        // Vérification login existant
         const response = await fetch("../Code_php/verif_utilisateur.php?login=" + encodeURIComponent(login.value));
         const exists = (await response.text()).trim();
         if (exists === "1") {
