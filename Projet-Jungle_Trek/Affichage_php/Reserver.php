@@ -93,7 +93,6 @@ function fmt_euro($n) {
 
 <form action="" method="POST">
     <div class="header">
-        <!-- ton header inchangé -->
         <div class="Logo">
             <img src="Images/Logo.png" width="50px" height="50px" alt="Logo">
             <p id="JT">Jungle Trek</p>
@@ -165,14 +164,12 @@ function fmt_euro($n) {
     </div>
 
     <input type="hidden" id="montant" name="montant" value="<?= $montant ?>">
-
-    <!-- Ajouter au panier, bottom-left via CSS inline -->
+    
     <button type="submit" name="add_to_cart" id="add-to-cart"
             style="position: fixed; bottom: 20px; left: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
         Ajouter au panier
     </button>
 
-    <!-- Payer -->
     <button type="submit" name="payer" id="pay-buttonrechercher">
         Payer (Total: <?= fmt_euro($montant) ?>)
     </button>
